@@ -33,7 +33,7 @@
 <br/> 
 
 
-# 💡ERD
+## 💡ERD
 
 ![image](https://github.com/strongmhk/instagram/assets/113084655/0d777a47-4810-4e7e-bc8e-9c1acf49ad30)
 
