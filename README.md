@@ -1,7 +1,9 @@
-# instagram
+# 📝instagram
+
+# 💡Spring Boot를 활용하여 인스타그램 클론코딩
 
 
-## 커밋 컨벤션
+# 💡커밋 컨벤션
 
 - feat: 새로운 기능 구현
 - fix: 오류 수정
@@ -13,3 +15,15 @@
 - chore: 빌드 부분 혹은 패키지 매니저 수정사항
 - rename: 파일 혹은 폴더명 수정 or 옮기기
 - remove: 파일 삭제
+
+
+# 💡사용 기술 
+- 사용 언어: Java 11
+- DataBase: MariaDB
+- Library: Spring Web, Spring Boot Devtools, Spring Security, Lombok, MariaDB Driver, Spring Data JPA
+- 개발 환경: IntelliJ, Gradle, Lombok, JPA
+
+# 💡ERD
+
+![image](https://github.com/strongmhk/instagram/assets/113084655/0d777a47-4810-4e7e-bc8e-9c1acf49ad30)
+
