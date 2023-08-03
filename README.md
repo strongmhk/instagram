@@ -1,11 +1,11 @@
 # 📝instagram
 
-# 💡Spring Boot를 활용하여 인스타그램 클론코딩
+## 💡Spring Boot를 활용하여 인스타그램 클론코딩
 <br/> 
 <br/> 
 <br/> 
    
-# 💡커밋 컨벤션
+## 💡커밋 컨벤션
 - feat: 새로운 기능 구현
 - fix: 오류 수정
 - docs: 문서 수정 (예 : readme.md, json 파일 등 수정/ 문서 관련 라이브러리 설치 등)
@@ -22,7 +22,7 @@
 <br/> 
 
 
-# 💡사용 기술 
+## 💡사용 기술 
 - 사용 언어: Java 11
 - DataBase: MariaDB
 - Library: Spring Web, Spring Boot Devtools, Spring Security, Lombok, MariaDB Driver, Spring Data JPA
