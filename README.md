@@ -25,7 +25,7 @@
 ## 💡사용 기술 
 - **Language**: Java 11
 - **DataBase**: MariaDB
-- **Dependency**: Spring Web, Spring Boot Devtools, Spring Security, Lombok, MariaDB Driver, Spring Data JPA
+- **Dependency**: Spring Boot 2.7.14, Spring Web, Spring Boot Devtools, Spring Security, Lombok, MariaDB Driver, Spring Data JPA
 - **IDE**: IntelliJ, Gradle, Lombok, JPA
 
 <br/> 
