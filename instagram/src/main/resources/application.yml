@@ -1,0 +1,59 @@
+# 서버설정
+server:
+  port: 8080 # 서버 접속을 위한 입구
+  servlet:
+    context-path: / # 서버 접속 주소
+    encoding:
+      charset: utf-8 # 서버에서 한글 사용
+      enabled: true
+
+spring:
+  # View Resolver 설정
+  mvc:
+    view:
+      prefix: /WEB-INF/views/ # 요청에 응답 할 파일이 있는 경로
+      suffix: .jsp # 클라이언트로부터 요청이 오면 해당 경로에 있는 .jsp파일로 응답할 것
+
+
+  # DB설정
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver # DB 이름
+    url:  jdbc:mariadb://localhost:3307/insta_clone?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false # DB경로
+    username: cos
+    password: cos1234
+
+  # ORM(Object-Relational Mapping)
+  # 객체와 관계형 데이터베이스의 데이터를 자동으로 연결
+  jpa:
+    open-in-view: true
+    # true, false
+    # view를 오픈 할 것인가?
+    # false : 응답라인에서 Service가 비지니스 로직을 처리하고 Session이 종료
+    # true : 응답라인에서 Controller가 응답을 처리하고 Session이 종료
+    hibernate:
+      ddl-auto: update # create, update, none
+      # hibernate는 SQL을 직접 사용하지 않고 메서드만으로 쿼리를 사용하게 해주는 라이브러리
+      # hibernate 기술을 쉽게 사용하게 해주는 라이브러리가 JPA이다
+      # ddl-auto
+      # create : 서버를 실행할 때마다 테이블을 삭제하고 새로 만듦
+      # update : update는 서버 재실행해도 데이터가 데이터베이스에 유지됨
+      # non :서버 실행할 때마다 아무것도 하지 않음
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  # 파일 업로드 설정
+  servlet:
+    multipart: # 파일의 타입을 여러가지로 받을 것이고,
+      enabled: true # 서버에 사진을 전송하는 것을 허용한다
+      max-file-size: 2MB # 파일의 사이즈 제한
+
+  # 스프링 시큐리티 설정
+  security:
+    user:
+      name: test
+      password: 1234
+
+# 파일이 저장될 커스텀 경로
+file:
+  path: C:/project/clipper/upload/ # 끝에 /가 붙어있어야 upload/image1.jpg 이런식으로 출력됨
