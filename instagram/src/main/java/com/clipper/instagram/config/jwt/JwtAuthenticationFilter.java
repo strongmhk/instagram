@@ -37,7 +37,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         try {
             ObjectMapper om = new ObjectMapper(); // json 데이터를 파싱해주는 객체
             User user = om.readValue(request.getInputStream(), User.class); // 요청 데이터(json) user object에 담아주기
-            System.out.println(user);
 
             UsernamePasswordAuthenticationToken authenticationToken =
                     new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
