@@ -46,7 +46,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
         // JWT 토큰 검증을 해서 정상적인 사용자인지 확인
         String jwtToken = request.getHeader(JwtProperties.HEADER_STRING).replace(JwtProperties.TOKEN_PREFIX, ""); // 토큰 앞에 Bearer + space 값을 공백으로 바꿔줌
 
-        // secret키 값 : JwtAuthenticationFilter에서 정해뒀던 "clipper"
+        // secret키 값 : JwtProperties에서 정한 값
         String username =
                 JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(jwtToken).getClaim("username").asString();
 
