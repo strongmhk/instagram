@@ -7,6 +7,8 @@ import com.clipper.instagram.service.UserService;
 import com.clipper.instagram.web.dto.CMRespDto;
 import com.clipper.instagram.web.dto.user.UserUpdateDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,6 +25,14 @@ import java.util.Map;
 public class UserApiController {
 
     private final UserService userService;
+
+
+    @GetMapping("/users")
+    public ResponseEntity<?> userList(){
+        List<User> userList = userService.userList();
+        return new ResponseEntity<>(new CMRespDto<>(1, "성공", userList), HttpStatus.OK);
+    }
+
 
 
     @PutMapping("/user/{id}")

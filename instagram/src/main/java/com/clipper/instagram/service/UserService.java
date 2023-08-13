@@ -4,9 +4,12 @@ import com.clipper.instagram.domain.user.User;
 import com.clipper.instagram.domain.user.UserRepository;
 import com.clipper.instagram.handler.ex.CustomValidationApiException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -14,6 +17,12 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public List<User> userList(){
+        return userRepository.findAll();
+    }
+
+
 
     @Transactional
     public User updateInfo(int id, User user){
