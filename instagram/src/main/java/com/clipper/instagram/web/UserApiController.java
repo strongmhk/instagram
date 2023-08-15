@@ -59,6 +59,13 @@ public class UserApiController {
     }
 
 
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable int id){
+        userService.deleteUser(id);
+        return new ResponseEntity<>(new CMRespDto<>(1, "회원삭제 성공", null), HttpStatus.OK);
+    }
+
+
 
 
 }

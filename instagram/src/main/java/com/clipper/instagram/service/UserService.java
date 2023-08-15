@@ -46,4 +46,14 @@ public class UserService {
     } // 더티체킹이 일어나서 업데이트가 완료됨(영속성 컨텍스트가 자동으로 해줌), userRepository.save 안해도됨
 
 
+    public void deleteUser(int id){
+        if(!userRepository.existsById(id)){
+            throw new CustomValidationApiException("존재하지 않는 사용자입니다. ");
+        } else{
+            userRepository.deleteById(id);
+        }
+
+    }
+
+
 }
