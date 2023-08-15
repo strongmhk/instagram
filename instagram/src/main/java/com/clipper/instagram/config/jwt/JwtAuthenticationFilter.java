@@ -71,14 +71,18 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         PrincipalDetails principalDetails = (PrincipalDetails) authResult.getPrincipal();
 
         // RSA방식은 아니고 Hash 암호방식
-        String jwtToken = JWT.create()
-                .withSubject("토큰")
-                        .withExpiresAt(new Date(System.currentTimeMillis()+(60000 * 30))) // 60000이면 60초
-                                .withClaim("id", principalDetails.getUser().getId())
-                                        .withClaim("username", principalDetails.getUser().getUsername())
-                                                .sign(Algorithm.HMAC512(JwtProperties.SECRET));
+        String jwtToken = getJwtToken(principalDetails);
 
         response.addHeader(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken); // Bearer 뒤에 한 칸 반드시 띄어야함
+    }
+
+    private static String getJwtToken(PrincipalDetails principalDetails) {
+        return JWT.create()
+                .withSubject("토큰")
+                .withExpiresAt(new Date(System.currentTimeMillis() + (JwtProperties.EXPIRATION_TIME))) // 60000이면 60초
+                .withClaim("id", principalDetails.getUser().getId())
+                .withClaim("username", principalDetails.getUser().getUsername())
+                .sign(Algorithm.HMAC512(JwtProperties.SECRET));
     }
 }
 
