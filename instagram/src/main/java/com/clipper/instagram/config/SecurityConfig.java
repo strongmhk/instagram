@@ -45,8 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // 로그인, 회원가입 API 는 토큰이 없는 상태에서 요청이 들어오기 때문에 permitAll 설정
                 .authorizeRequests()
-                .antMatchers("/api/signup/**").permitAll()
+                /*.antMatchers("/api/signup/**").permitAll()
                 .antMatchers("/login/**").permitAll()
+                .antMatchers("/api/subscribe/**").permitAll()*/
 
                 // 나머지 API는 모두 인증 필요
                 .anyRequest().authenticated();
