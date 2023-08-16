@@ -44,13 +44,7 @@ public class AuthController {
 
     }
 
-
-    @GetMapping("/test")
-    public String test(Authentication authentication){
-        PrincipalDetails principal = (PrincipalDetails) authentication.getPrincipal();
-        System.out.println("authentication = " + principal.toString());
-        return "인증된 사용자 입니다.";
-    }
+    
 
 
 
